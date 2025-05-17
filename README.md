@@ -13,6 +13,14 @@ A weather subscription service that allows users to receive weather updates for 
 
 ---
 
+## 🌐 Related Projects
+
+- **Frontend repository:** [weather-ui](https://github.com/Dzirael/weather-ui)
+- **Live demo:** [https://weather.dzirit.xyz](https://weather.dzirit.xyz)
+
+---
+
+
 ## 🚀 Quick Start
 
 ### 🔧 Requirements
