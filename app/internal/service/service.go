@@ -71,11 +71,12 @@ func (s WeatherService) CreateSubscription(ctx context.Context, params models.Su
 	return s.smtp.Send(params.Email, confirmMail)
 }
 
-func (s WeatherService) ConfirmSubscription(context.Context, uuid.UUID) error {
-	return nil
+func (s WeatherService) ConfirmSubscription(ctx context.Context, conrimationCode uuid.UUID) error {
+	return s.repo.UpdateSubscriptionStatusByCode(ctx, models.SubscriptionActive, conrimationCode)
 }
-func (s WeatherService) CancelSubscription(context.Context, uuid.UUID) error {
-	return nil
+
+func (s WeatherService) CancelSubscription(ctx context.Context, conrimationCode uuid.UUID) error {
+	return s.repo.DeleteSubscription(ctx, conrimationCode)
 }
 
 func (s WeatherService) HandleTriggeredNotification(ctx context.Context, subscriptionID uuid.UUID) error {
