@@ -17,7 +17,7 @@ A weather subscription service that allows users to receive weather updates for 
 
 - **Frontend repository:** [weather-ui](https://github.com/Dzirael/weather-ui)
 - **Live demo:** [https://weather.dzirit.xyz](https://weather.dzirit.xyz)
-
+- **Swagger:** [https://weather-api.dzirit.xyz/api/swagger](https://weather-api.dzirit.xyz/api/swagger)
 ---
 
 
