@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Update</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .card {
+            background: #fff;
+            padding: 2rem 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+            max-width: 460px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #0277bd;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .weather-info {
+            margin: 1.5rem 0;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        button {
+            background-color: #c62828;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #b71c1c;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #121212;
+                color: #e0e0e0;
+            }
+
+            .card {
+                background: #1e1e1e;
+                box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+            }
+
+            button {
+                background-color: #ef5350;
+            }
+
+            button:hover {
+                background-color: #e53935;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Today's Weather Update</h2>
+        <div class="weather-info">
+            <p><strong>Temperature:</strong> {{.Temperature}}°C</p>
+            <p><strong>Humidity:</strong> {{.Humidity}}%</p>
+            <p><strong>Condition:</strong> {{.Description}}</p>
+        </div>
+        <a href="{{.WebsiteURL}}/unsubscribe?token={{.Token}}" style="...">Unsubscribe</a>
+    </div>
+</body>
+</html>

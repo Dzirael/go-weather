@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirm Your Subscription</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .card {
+            background: #fff;
+            padding: 2rem 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+            max-width: 460px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #2e7d32;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+        }
+
+        button {
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #27662b;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #121212;
+                color: #e0e0e0;
+            }
+
+            .card {
+                background: #1e1e1e;
+                box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+            }
+
+            button {
+                background-color: #43a047;
+            }
+
+            button:hover {
+                background-color: #388e3c;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Thanks for Subscribing!</h2>
+        <p>Please confirm your subscription by clicking the button below:</p>
+        <a href="{{.WebsiteURL}}/confirm?token={{.Token}}" style="...">Confirm Subscription</a>
+    </div>
+</body>
+</html>
