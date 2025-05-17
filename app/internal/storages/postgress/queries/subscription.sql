@@ -4,9 +4,7 @@ VALUES (@id, @code, @status, @frequency, @email, @city, NOW());
 
 -- name: UpdateSubscriptionStatusByCode :exec
 UPDATE subscription
-SET status = @status,
-    confirmation_code = NULL,
-    valid_til = NULL
+SET status = @status
 WHERE confirmation_code = @confirmation_code
 RETURNING id;
 

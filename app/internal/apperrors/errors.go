@@ -1,10 +1,12 @@
 package apperrors
 
-import "errors"
+import (
+	"fmt"
+)
 
 var (
-	ErrAlreadyHaveSubscription = errors.New("email already subscribed")
-	ErrCityNotSupported        = errors.New("city not supported")
+	ErrAlreadyHaveSubscription = fmt.Errorf("email already subscribed")
+	ErrCityNotSupported        = fmt.Errorf("city not supported")
 
-	ErrConfirmationCodeNotFound = errors.New("confirmation code not found")
+	ErrConfirmationCodeNotFound = fmt.Errorf("confirmation code not found")
 )

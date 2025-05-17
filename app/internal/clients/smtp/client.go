@@ -1,7 +1,6 @@
 package smtp
 
 import (
-	"fmt"
 	"go-weather/app/internal/config"
 	"go-weather/app/internal/models"
 
@@ -30,6 +29,5 @@ func (m *Mailer) Send(to string, msg *models.MailMessage) error {
 	mail.SetBody("text/html", msg.Message)
 
 	err := m.dialer.DialAndSend(mail)
-	fmt.Println("SMTP", err)
 	return err
 }

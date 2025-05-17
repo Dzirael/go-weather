@@ -122,9 +122,7 @@ func (q *Queries) SetSendedNow(ctx context.Context, id uuid.UUID) error {
 
 const updateSubscriptionStatusByCode = `-- name: UpdateSubscriptionStatusByCode :exec
 UPDATE subscription
-SET status = $1,
-    confirmation_code = NULL,
-    valid_til = NULL
+SET status = $1
 WHERE confirmation_code = $2
 RETURNING id
 `
