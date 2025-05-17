@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS subscription (
     confirmation_code UUID,
     status            VARCHAR(32)  NOT NULL,
     frequency         VARCHAR(16)  NOT NULL,
-    email             VARCHAR(255) NOT NULL UNIQUE,
+    email             VARCHAR(255) NOT NULL,
     city              VARCHAR(100) NOT NULL,
     sended_at         TIMESTAMP
 );

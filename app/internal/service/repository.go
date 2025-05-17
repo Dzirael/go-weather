@@ -14,4 +14,5 @@ type WeatherRepository interface {
 	GetWaitingsSubscription(ctx context.Context) ([]uuid.UUID, error)
 	SetSendetNow(ctx context.Context, subscriptionID uuid.UUID) error
 	DeleteSubscription(ctx context.Context, code uuid.UUID) error
+	HaveActiveSubscription(ctx context.Context, email string) (bool, error)
 }

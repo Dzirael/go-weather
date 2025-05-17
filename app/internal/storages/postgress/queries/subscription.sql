@@ -30,3 +30,8 @@ WHERE id = @id;
 -- name: DeleteSubscription :exec
 DELETE FROM subscription
 WHERE confirmation_code = @code;
+
+-- name: HaveActiveSubscription :one
+SELECT EXISTS (
+  SELECT 1 FROM subscription WHERE email = @email AND status = 'ACTIVE'
+) AS exists;

@@ -3,6 +3,7 @@ package service
 import (
 	"context"
 	"fmt"
+	"go-weather/app/internal/apperrors"
 	"go-weather/app/internal/config"
 	"go-weather/app/internal/models"
 	"go-weather/app/internal/render"
@@ -38,7 +39,16 @@ func (s WeatherService) CreateSubscription(ctx context.Context, params models.Su
 	subscriptionID := uuid.Must(uuid.NewV7())
 	confirmationCode := uuid.Must(uuid.NewV7())
 
-	err := s.repo.CreateSubscription(ctx, models.CreateSubscriptionParams{
+	have, err := s.repo.HaveActiveSubscription(ctx, params.Email)
+	if err != nil {
+		return fmt.Errorf("check email: %w", err)
+	}
+
+	if have {
+		return apperrors.ErrAlreadyHaveSubscription
+	}
+
+	err = s.repo.CreateSubscription(ctx, models.CreateSubscriptionParams{
 		ID:               subscriptionID,
 		ConfirmationCode: confirmationCode,
 		Status:           models.SubscriptionPending,

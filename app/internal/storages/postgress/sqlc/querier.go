@@ -15,6 +15,7 @@ type Querier interface {
 	DeleteSubscription(ctx context.Context, code uuid.UUID) error
 	GetSubscriptionByID(ctx context.Context, id uuid.UUID) (Subscription, error)
 	GetWaitingsNotification(ctx context.Context) ([]uuid.UUID, error)
+	HaveActiveSubscription(ctx context.Context, email string) (bool, error)
 	SetSendedNow(ctx context.Context, id uuid.UUID) error
 	UpdateSubscriptionStatusByCode(ctx context.Context, status string, confirmationCode uuid.UUID) error
 }

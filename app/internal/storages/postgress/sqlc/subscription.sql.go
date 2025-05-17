@@ -96,6 +96,19 @@ func (q *Queries) GetWaitingsNotification(ctx context.Context) ([]uuid.UUID, err
 	return items, nil
 }
 
+const haveActiveSubscription = `-- name: HaveActiveSubscription :one
+SELECT EXISTS (
+  SELECT 1 FROM subscription WHERE email = $1 AND status = 'ACTIVE'
+) AS exists
+`
+
+func (q *Queries) HaveActiveSubscription(ctx context.Context, email string) (bool, error) {
+	row := q.db.QueryRow(ctx, haveActiveSubscription, email)
+	var exists bool
+	err := row.Scan(&exists)
+	return exists, err
+}
+
 const setSendedNow = `-- name: SetSendedNow :exec
 UPDATE subscription
 SET sended_at = NOW()

@@ -94,3 +94,11 @@ func subscriptionToModel(sub sqlc.Subscription) *models.Subscription {
 func (r WeatherRepository) DeleteSubscription(ctx context.Context, code uuid.UUID) error {
 	return r.repo.DeleteSubscription(ctx, code)
 }
+
+func (r WeatherRepository) HaveActiveSubscription(ctx context.Context, email string) (bool, error) {
+	have, err := r.repo.HaveActiveSubscription(ctx, email)
+	if err != nil {
+		return false, fmt.Errorf("sqlc: check active subscription: %w", err)
+	}
+	return have, nil
+}
